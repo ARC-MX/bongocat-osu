@@ -15,7 +15,7 @@ jobs:
     - uses: msys2/setup-msys2@v2
       with:
         update: false
-        msystem: UCRT64
+        msystem: MINGW64 
         install: >-
           curl
           git
