@@ -21,8 +21,8 @@ jobs:
           git
     - shell: msys2 {0}
       run: |
-        makepkg-mingw -sCLfc --noconfirm --noprogressbar
         pacman  -S mingw-w64-x86_64-sfml
+#       makepkg-mingw -sCLfc --noconfirm --noprogressbar
     - uses: actions/checkout@v3
 #     - name: install sfml
 #       run: |
