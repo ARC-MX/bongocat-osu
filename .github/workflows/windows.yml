@@ -45,9 +45,9 @@ jobs:
           mingw-w64-x86_64-tzdata
           mingw-w64-x86_64-wineditline
           mingw-w64-x86_64-sfml
-    - shell: msys2 {0}
-      run: |
-        pacman  -S mingw-w64-x86_64-sfml
+#     - shell: msys2 {0}
+#       run: |
+#         pacman  -S mingw-w64-x86_64-sfml
 #       makepkg-mingw -sCLfc --noconfirm --noprogressbar
     - uses: actions/checkout@v3
 #     - name: install sfml
