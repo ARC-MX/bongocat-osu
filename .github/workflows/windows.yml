@@ -20,8 +20,8 @@ jobs:
           curl
           git            
           base-devel
-          mingw-w64-${{ matrix.arch }}-gcc
-          mingw-w64-${{ matrix.arch }}-cmake
+          mingw-w64-x86_64-gcc
+          mingw-w64-x86_64-cmake
     - shell: msys2 {0}
       run: |
         pacman  -S mingw-w64-x86_64-sfml
