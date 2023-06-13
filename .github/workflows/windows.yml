@@ -17,7 +17,9 @@ jobs:
       run: ./configure
     - name: make
       run: make -f Makefile.windows
-    - name: make check
-      run: make  -f Makefile.windows check
-    - name: make distcheck
-      run: make  -f Makefile.windows  distcheck
+    - name: make test
+      run: make -f Makefile.windows test
+#    - name: make check
+#      run: make  -f Makefile.windows check
+#    - name: make distcheck
+#      run: make  -f Makefile.windows  distcheck
