@@ -13,7 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-#    - name: configure
+    - name: configure
+      run: |
+        vcpkg install drogon:x64-windows
+        vcpkg export drogon:x64-windows --zip
 #      run: ./configure
 #    - name: install sfml
 #      run: pacman -S mingw-w64-x86_64-sfml
