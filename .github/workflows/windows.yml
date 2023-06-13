@@ -13,13 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: configure
-      run: |
-        vcpkg install drogon:x64-windows
-        vcpkg export drogon:x64-windows --zip
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: x64
+        version: 7.3.0
 #      run: ./configure
-#    - name: install sfml
-#      run: pacman -S mingw-w64-x86_64-sfml
+    - name: install sfml
+      run: pacman -S mingw-w64-x86_64-sfml
     - name: make
       run: make -f Makefile.windows
     - name: make test
