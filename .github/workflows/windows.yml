@@ -12,15 +12,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up MinGW
-      uses: egor-tensin/setup-mingw@v2
+    - uses: msys2/setup-msys2@v2
       with:
-        platform: x64
-        version: 7.3.0
-#      run: ./configure
-    - name: install sfml
-      run: pacman -S mingw-w64-x86_64-sfml
+        update: false
+        msystem: UCRT64
+        install: >-
+          curl
+          git
+    - shell: msys2 {0}
+      run: |
+        makepkg-mingw -sCLfc --noconfirm --noprogressbar
+        pacman  -S mingw-w64-x86_64-sfml
+    - uses: actions/checkout@v3
+#     - name: install sfml
+#       run: |
+#         gcc --version
+#         pacman -S mingw-w64-x86_64-sfml
     - name: make
       run: make -f Makefile.windows
     - name: make test
